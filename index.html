@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellsia'm ❤️</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- LOADING SCREEN -->
+    <div id="loader">
+        <div class="loader-inner">
+            <h1>Wellsia'm</h1>
+            <p>Senin için hazırlanıyor... <img src="https://cdn.jsdelivr.net/npm/emoji-datasource-apple@15.0.1/img/apple/64/2764-fe0f.png" class="apple-emoji" alt="❤️"></p>
+            <div class="loading-container">
+                <div id="loading-bar"></div>
+            </div>
+            <span id="loading-percent">0%</span>
+        </div>
+    </div>
+
+    <!-- MUSIC -->
+    <audio id="music" loop preload="auto">
+        <source src="assets/music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- HEART EFFECT -->
+    <div id="hearts"></div>
+
+    <!-- MAIN SITE -->
+    <div id="site">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Wellsia'm</h1>
+                <p>birlikte nice güzel yaşlarımıza...</p>
+                <button onclick="scrollGallery()">Anılarımıza Bak ↓</button>
+            </div>
+        </section>
+
+        <section class="gallery-section" id="gallery">
+            <h2>Güzel Anılarımız</h2>
+            <div class="gallery">
+                <img src="assets/photo1.jpg" onclick="openImage(this.src)" alt="Anı 1">
+                <img src="assets/photo2.jpg" onclick="openImage(this.src)" alt="Anı 2">
+                <img src="assets/photo3.jpg" onclick="openImage(this.src)" alt="Anı 3">
+                <img src="assets/photo4.jpg" onclick="openImage(this.src)" alt="Anı 4">
+                <img src="assets/photo5.jpg" onclick="openImage(this.src)" alt="Anı 5">
+                <img src="assets/photo6.jpg" onclick="openImage(this.src)" alt="Anı 6">
+            </div>
+        </section>
+
+        <section class="letter">
+            <h2>Sana küçük bir not <img src="https://cdn.jsdelivr.net/npm/emoji-datasource-apple@15.0.1/img/apple/64/1f48c.png" class="apple-emoji" alt="💌"></h2>
+            <p>
+                Hayatıma kattığın güzel şeyler için teşekkür ederim.<br>
+                Yeni yaşında yüzünün hep gülmesi, mutluluğun ve huzurun hiç eksilmemesi dileğiyle.<br>
+                İyi ki varsın <img src="https://cdn.jsdelivr.net/npm/emoji-datasource-apple@15.0.1/img/apple/64/2764-fe0f.png" class="apple-emoji" alt="❤️">
+            </p>
+        </section>
+
+        <!-- TROLL SURVEY SECTION -->
+        <section class="survey-section">
+            <h2>Beni seviyor musun? <img src="https://cdn.jsdelivr.net/npm/emoji-datasource-apple@15.0.1/img/apple/64/1f97a.png" class="apple-emoji" alt="🥺"></h2>
+            <p>Dürüstçe cevap ver bakalım...</p>
+            
+            <div class="survey-buttons">
+                <button id="yesBtn" onclick="selectYes()">Evet, çok seviyorum! <img src="https://cdn.jsdelivr.net/npm/emoji-datasource-apple@15.0.1/img/apple/64/2764-fe0f.png" class="apple-emoji" alt="❤️"></button>
+                <button id="noBtn" onmouseover="dodgeNo()" ontouchstart="dodgeNo()" onclick="dodgeNo()">Hayır <img src="https://cdn.jsdelivr.net/npm/emoji-datasource-apple@15.0.1/img/apple/64/1f494.png" class="apple-emoji" alt="💔"></button>
+            </div>
+
+            <div id="surveyResult" class="survey-result">
+                <p>Biliyordum zaten! Tek seçeneğin buydu kii <img src="https://cdn.jsdelivr.net/npm/emoji-datasource-apple@15.0.1/img/apple/64/1f92a.png" class="apple-emoji" alt="🤪"><img src="https://cdn.jsdelivr.net/npm/emoji-datasource-apple@15.0.1/img/apple/64/2764-fe0f.png" class="apple-emoji" alt="❤️"></p>
+            </div>
+        </section>
+
+        <!-- MODERN MUSIC PANEL -->
+        <div class="music-panel">
+            <div class="music-info">
+                <div class="music-icon-pulse">
+                    <i class="fa-solid fa-music"></i>
+                </div>
+                <div class="music-text">
+                    <h3>Wellsia x feluxcan</h3>
+                    <p>Arka Plan Müziği</p>
+                </div>
+            </div>
+
+            <div class="music-controls" style="display: flex; align-items: center; gap: 12px;">
+                <button id="playBtn" title="Oynat / Durdur">
+                    <i class="fa-solid fa-play"></i>
+                </button>
+                
+                <div class="volume-container">
+                    <button id="muteBtn" title="Sesi Aç / Kapat">
+                        <i class="fa-solid fa-volume-high"></i>
+                    </button>
+                    <input type="range" id="volume" min="0" max="1" step="0.01" value="0.5">
+                </div>
+
+                <!-- SPOTIFY LOGO BUTONU -->
+                <a href="https://open.spotify.com/playlist/7FRiI8ICgfk9cSh6eFstv3" target="_blank" rel="noopener noreferrer" title="Çalma Listemiz 🎵" style="display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; background: rgba(29, 185, 84, 0.15); border: 1px solid rgba(29, 185, 84, 0.4); border-radius: 50%; text-decoration: none; transition: 0.3s; flex-shrink: 0;">
+                    <i class="fa-brands fa-spotify" style="color: #1db954; font-size: 20px;"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- IMAGE VIEWER -->
+        <div id="image-viewer">
+            <span onclick="closeImage()">&times;</span>
+            <img id="big-image" alt="Büyük Görsel">
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
